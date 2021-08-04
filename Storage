@@ -1,3 +1,4 @@
+Aug 03, 2021
 
 ansible -i slist all -m shell -a "multipath -ll"  -u <userid> --ask-pass --become --ask-sudo-pass > <output>.txt
 SSH password:
