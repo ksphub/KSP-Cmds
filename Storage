@@ -1,0 +1,10 @@
+
+ansible -i slist all -m shell -a "multipath -ll"  -u <userid> --ask-pass --become --ask-sudo-pass > <output>.txt
+SSH password:
+SUDO password[defaults to SSH password]:
+
+cat <output>.txt | grep -v active | grep -v alua | grep -v 3PARdata | grep -v HP | grep -v hwhandler
+
+cat <output>.txt | grep -i active | wc -l
+
+echo "<mail body>" | mailx  -S smtp=<smtpip> -s "<subject>" -a ./<output>.txt <email-1> <<email-12>
